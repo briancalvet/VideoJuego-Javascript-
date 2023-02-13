@@ -43,17 +43,23 @@ window.addEventListener("resize" , setCanvasSize);
 function setCanvasSize(){
 
    
-    
+    // establecemos el tamaño del canvas. 
     if (window.innerHeight > window.innerWidth){
-        canvasSize = window.innerWidth * 0.8; 
+        canvasSize = window.innerWidth * 0.7; 
     }else {
-        canvasSize = window.innerHeight * 0.8; 
+        canvasSize = window.innerHeight * 0.7; 
     }
+
+    canvasSize = Number(canvasSize.toFixed(0)); 
 
     canvas.setAttribute("width" , canvasSize); 
     canvas.setAttribute("height" , canvasSize); 
     
     elementsSize = canvasSize / 10; 
+    
+    // reiniciamos la posicion para que la misma se acomode a las nuevas posiciones que debe tomar para las aplicaciones
+    playerPosition.x = undefined
+    playerPosition.y = undefined
     startGame()
 
 }
@@ -268,6 +274,7 @@ function regresarPlayerPuertaYRestarVida(){
        map = maps[0];
        lives = 3;
        tiempoDeInicio = undefined; 
+       
      
         
 }
